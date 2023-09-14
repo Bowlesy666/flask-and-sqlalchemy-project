@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- cdnjs font awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css">
+    <!-- taken from materialise -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <!--  url_for is used for any of the files we have in our repo, as above doesnt its fine -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <title>Task Manager</title>
+</head>
+<body>
+
+    <header>
+        <!-- top navbar, class added to navbar to change default colours -->
+        <nav class="light-blue darken-1">
+            <div class="nav-wrapper">
+                <!-- href change to url _ for again -->
+                <a href="{{ url_for('home') }}" class="brand-logo">Task Manager</a>
+                <!-- font awesome icon to change the burger menu -->
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <!-- change default href to url _ for  -->
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="">New Task</a></li>
+                    <li><a href="">Categories</a></li>
+              </ul>
+            </div>
+          </nav>
+        
+          <!-- mobile sidenav -->
+          <ul class="sidenav" id="mobile-demo">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="">New Task</a></li>
+                <li><a href="">Categories</a></li>
+          </ul>
+    </header>
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="page-footer blue darken-3">
+        <div class="footer-copyright">
+          <div class="container">
+            for educational purposes only
+            <a class="grey-text text-lighten-4 right" href="https://github.com/Bowlesy666">&copy; My Stuffs!</a>
+          </div>
+        </div>
+      </footer>
+
+    <!-- taken from materialise, if you want jquery, put that link just above this one -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- again our src needs to be in with url _ for  -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
